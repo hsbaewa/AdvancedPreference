@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import java.util.logging.Logger;
 
 import kr.co.hs.content.advancedpreference.AdvancedPreference;
 
