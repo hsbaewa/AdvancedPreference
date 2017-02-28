@@ -1,5 +1,7 @@
 package kr.co.hs.content.advancedpreference;
 
+import android.content.SharedPreferences;
+
 import java.util.Map;
 import java.util.Set;
 
@@ -29,4 +31,7 @@ public interface IAdvancedPreference {
     void syncCache();
     void clearCache();
     Map<String,Object> getCacheDataMap();
+
+    void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener);
+    void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener);
 }

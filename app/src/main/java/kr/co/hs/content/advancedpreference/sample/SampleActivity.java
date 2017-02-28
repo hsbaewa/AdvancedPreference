@@ -1,7 +1,9 @@
 package kr.co.hs.content.advancedpreference.sample;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -25,6 +27,17 @@ public class SampleActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("Test", MODE_PRIVATE);
         AdvancedPreference advancedPreference = new AdvancedPreference(preferences);
         Log.d("a","a");
+
+        //or
+
+        advancedPreference = new AdvancedPreference(getApplicationContext());
+        //like this  PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        //or
+        advancedPreference = new AdvancedPreference(getApplicationContext(), "name", Context.MODE_PRIVATE);
+        //like this   preferences = getSharedPreferences("name", Context.MODE_PRIVATE);
+
+
 
         //put data
         advancedPreference.set("Key", "Value");

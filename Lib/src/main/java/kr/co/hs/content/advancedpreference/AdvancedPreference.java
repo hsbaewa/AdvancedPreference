@@ -1,8 +1,10 @@
 package kr.co.hs.content.advancedpreference;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -21,11 +23,23 @@ public class AdvancedPreference implements IAdvancedPreference{
     private HashMap<String, Object> mPushDataMap;
     private HashMap<String, Object> mCacheDataMap;
 
+    public AdvancedPreference(Context context) {
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        init();
+    }
+    public AdvancedPreference(Context context, String name, int mode) {
+        mSharedPreferences = context.getSharedPreferences(name, mode);
+        init();
+    }
     public AdvancedPreference(SharedPreferences mSharedPreferences) {
         this.mSharedPreferences = mSharedPreferences;
-        this.mPushDataMap = new HashMap<>();
-        this.mCacheDataMap = new HashMap<>();
+        init();
     }
+    private void init(){
+        mPushDataMap = new HashMap<>();
+        mCacheDataMap = new HashMap<>();
+    }
+
 
     public SharedPreferences getSharedPreference(){
         return this.mSharedPreferences;
@@ -320,5 +334,15 @@ public class AdvancedPreference implements IAdvancedPreference{
     @Override
     public Map<String, Object> getCacheDataMap() {
         return this.mCacheDataMap;
+    }
+
+    @Override
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener) {
+        mSharedPreferences.registerOnSharedPreferenceChangeListener(listener);
+    }
+
+    @Override
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener) {
+        mSharedPreferences.unregisterOnSharedPreferenceChangeListener(listener);
     }
 }
