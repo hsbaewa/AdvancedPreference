@@ -19,7 +19,7 @@ allprojects {
 <pre><code>
 //app build.gradle
 dependencies {
-    compile 'com.github.hsbaewa:AdvancedPreference:1.0.1'
+    compile 'com.github.hsbaewa:AdvancedPreference:1.0.2'
 }
 </code></pre>
 
