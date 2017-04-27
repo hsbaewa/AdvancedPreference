@@ -12,12 +12,12 @@ import java.util.Set;
  */
 
 public interface IAdvancedPreference {
-    void set(String key, String value);
-    void set(String key, int value);
-    void set(String key, long value);
-    void set(String key, boolean value);
-    void set(String key, float value);
-    void set(String key, Set<String> value);
+    IAdvancedPreference set(String key, String value);
+    IAdvancedPreference set(String key, int value);
+    IAdvancedPreference set(String key, long value);
+    IAdvancedPreference set(String key, boolean value);
+    IAdvancedPreference set(String key, float value);
+    IAdvancedPreference set(String key, Set<String> value);
 
     boolean commit();
     String getString(String key, String def);
@@ -28,8 +28,8 @@ public interface IAdvancedPreference {
     Set<String> getStringSet(String key, Set<String> def);
 
     Map<String,?> getAll();
-    void syncCache();
-    void clearCache();
+    IAdvancedPreference syncCache();
+    IAdvancedPreference clearCache();
     Map<String,Object> getCacheDataMap();
 
     void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener);

@@ -47,45 +47,51 @@ public class AdvancedPreference implements IAdvancedPreference{
 
 
     @Override
-    public void set(String key, String value) {
+    public IAdvancedPreference set(String key, String value) {
         synchronized (this.mPushDataMap){
             this.mPushDataMap.put(key, value);
         }
+        return this;
     }
 
     @Override
-    public void set(String key, int value) {
+    public IAdvancedPreference set(String key, int value) {
         synchronized (this.mPushDataMap){
             this.mPushDataMap.put(key, value);
         }
+        return this;
     }
 
     @Override
-    public void set(String key, long value) {
+    public IAdvancedPreference set(String key, long value) {
         synchronized (this.mPushDataMap){
             this.mPushDataMap.put(key, value);
         }
+        return this;
     }
 
     @Override
-    public void set(String key, boolean value) {
+    public IAdvancedPreference set(String key, boolean value) {
         synchronized (this.mPushDataMap){
             this.mPushDataMap.put(key, value);
         }
+        return this;
     }
 
     @Override
-    public void set(String key, float value) {
+    public IAdvancedPreference set(String key, float value) {
         synchronized (this.mPushDataMap){
             this.mPushDataMap.put(key, value);
         }
+        return this;
     }
 
     @Override
-    public void set(String key, Set<String> value) {
+    public IAdvancedPreference set(String key, Set<String> value) {
         synchronized (this.mPushDataMap){
             this.mPushDataMap.put(key, value);
         }
+        return this;
     }
 
     @Override
@@ -316,7 +322,7 @@ public class AdvancedPreference implements IAdvancedPreference{
     }
 
     @Override
-    public void syncCache() {
+    public IAdvancedPreference syncCache() {
         Map<String, ?> allDatas = getAll();
         Iterator<String> keyset = allDatas.keySet().iterator();
         if(keyset.hasNext()){
@@ -324,11 +330,13 @@ public class AdvancedPreference implements IAdvancedPreference{
             Object value = allDatas.get(key);
             mCacheDataMap.put(key, value);
         }
+        return this;
     }
 
     @Override
-    public void clearCache() {
+    public IAdvancedPreference clearCache() {
         this.mCacheDataMap.clear();
+        return this;
     }
 
     @Override
