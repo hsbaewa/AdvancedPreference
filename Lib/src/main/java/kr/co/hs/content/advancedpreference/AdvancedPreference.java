@@ -103,7 +103,9 @@ public class AdvancedPreference implements IAdvancedPreference{
             while(iter.hasNext()){
                 String key = iter.next();
                 Object obj = this.mPushDataMap.get(key);
-                if(obj instanceof String){
+                if(obj == null){
+                    edit.putString(key, null);
+                }else if(obj instanceof String){
                     edit.putString(key, (String) obj);
                 }else if(obj instanceof Integer){
                     edit.putInt(key, (Integer) obj);
